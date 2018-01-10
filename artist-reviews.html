@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Vibed</title>
+	<link rel="stylesheet" href="style.css">
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<!-- for request handling! -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav>
+		<div class="nav-wrapper"> <a href="index.html" class="brand-logo">Vibed</a>
+			<a href="#" data-activates="mobile-demo " class="button-collapse"><i class="material-icons"></i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="profile.html">Profile</a>
+				</li>
+				<li><a href="artist-reviews.html">Artist Reviews</a>
+				</li>
+				<li><a href="instructions.html">instructions</a>
+                </li>
+                <li><a class="waves-effect waves-light btn modal-trigger" href="#modal-create">Create New Artist</a></li>
+			</ul>
+		</div>
+	</nav>
+		<div class='artists'></div>
+	<aside>
+		<!-- Modal Structure -->
+		<div id="modal-create" class="modal">
+			<div class="modal-content">
+				<h4>Create New Artist Post!</h4>
+				<div class="row">
+					<div class="input-field">
+						<input id="name" type="text" class="validate">
+						<label for="name">Name:</label>
+                    </div>
+                <div class="row">
+                    <div class="input-field">
+                        <input id="img" type="text" class="validate">
+                        <label for="img">Image:</label>
+                    </div>    
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="soundcloud" type="url" class="validate">
+						<label for="soundcloud">Soundcloud:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="youtube" type="url" class="validate">
+						<label for="youtube">Youtube:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="itunes" type="url" class="validate">
+						<label for="itunes">iTunes:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="spotify" type="url" class="validate">
+						<label for="spotify">Spotify:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="twitter" type="url" class="validate">
+						<label for="twitter">Name</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="instagram" type="url" class="validate">
+						<label for="instagram">Instagram</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="snapchat" type="text" class="validate">
+						<label for="snapchat">Snapchat</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="facebook" type="text" class="validate">
+						<label for="facebook">Facebook</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="flow" type="number" class="validate">
+						<label for="flow">Flow</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="delivery" type="number" class="validate">
+						<label for="delivery">Delivery</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="style" type="number" class="validate">
+						<label for="style">Style</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="visuals" type="number" class="validate">
+						<label for="visuals">Name</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="unique" type="text" class="validate">
+						<label for="unique">Overall</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="article" type="text" class="validate">
+						<label for="article">Article</label>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn grey center-align" id="submit">Submit</button>
+			</div>
+		</div>
+	</div>
+
+
+		<!-- EDIT SECTION -->
+	
+		<!-- Modal Structure -->
+		<div id="modal-edit" class="modal">
+			<div class="modal-content">
+				<h4>Edit Artist Post!</h4>
+				<div class="row">
+					<div class="input-field">
+						<input id="name-edit" type="text" class="validate">
+						<label for="name-edit">Name:</label>
+					</div>
+                </div>
+                <div class="row">
+                        <div class="input-field">
+                            <input id="img-edit" type="url" class="validate">
+                            <label for="img-edit">Image:</label>
+                        </div>    
+                    </div>
+				<div class="row">
+					<div class="input-field">
+						<input id="soundcloud-edit" type="url" class="validate">
+						<label for="soundcloud-edit">Soundcloud:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="youtube-edit" type="url" class="validate">
+						<label for="youtube-edit">Youtube:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="itunes-edit" type="url" class="validate">
+						<label for="itunes-edit">iTunes:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="spotify-edit" type="url" class="validate">
+						<label for="spotify-edit">Spotify:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="twitter-edit" type="url" class="validate">
+						<label for="twitter-edit">Twitter:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="instagram-edit" type="url" class="validate">
+						<label for="instagram-edit">Instagram</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="snapchat-edit" type="text" class="validate">
+						<label for="snapchat-edit">Snapchat</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="facebook-edit" type="url" class="validate">
+						<label for="facebook-edit">Facebook</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="flow-edit" type="number" class="validate">
+						<label for="flow-edit">Flow</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="delivery-edit" type="number" class="validate">
+						<label for="delivery-edit">Delivery</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="style-edit" type="number" class="validate">
+						<label for="style-edit">Style</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="visuals-edit" type="number" class="validate">
+						<label for="visuals-edit">Name</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="unique-edit" type="number" class="validate">
+						<label for="unique-edit">Overall</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input id="article-edit" type="text" class="validate">
+						<label for="article-edit">Article</label>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn grey center-align" id="submit-edit">Submit</button>
+				<button class="btn red center-align" id="delete">Delete</button>
+			</div>
+		</div>
+	</aside>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script src="script.js"></script>
+	<script src="styling.js"></script>
+</body>
+</html>

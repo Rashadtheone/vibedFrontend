@@ -1,0 +1,35 @@
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
+button {
+    margin-top: 15px !important;
+    margin-right: 15px !important;
+}
+
+.artists {
+    display: grid;
+    grid-template-columns:repeat(31fr);
+    grid-gap:10px;
+}
+.artist {
+    background-color: black;
+    width:400px; 
+    height: 400px;
+    cursor: pointer;
+}
+.card {
+    width:400px;
+    height:400px;
+}
+.card-title {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.card>img {
+    width:400px;
+    height:400px;
+}
+a {
+    margin-left:15px;
+}
